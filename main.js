@@ -60,7 +60,6 @@ function sendStatusToWindow(text) {
 }
 function createDefaultWindow() {
   win = new BrowserWindow();
-  win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });
@@ -85,16 +84,8 @@ autoUpdater.on('download-progress', (progressObj) => {
   log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
   sendStatusToWindow(log_message);
 })
-autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded');
-});
-app.on('ready', function() {
-  // Create the Menu
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
 
-  createDefaultWindow();
-});
+
 app.on('window-all-closed', () => {
   app.quit();
 });
@@ -126,17 +117,9 @@ app.on('window-all-closed', () => {
 //-------------------------------------------------------------------
 app.on('ready', function()  {
   autoUpdater.checkForUpdates();
+  createDefaultWindow();
+
 });
-autoUpdater.on('checking-for-update', () => {
-})
-autoUpdater.on('update-available', (info) => {
-})
-autoUpdater.on('update-not-available', (info) => {
-})
-autoUpdater.on('error', (err) => {
-})
-autoUpdater.on('download-progress', (progressObj) => {
-})
 autoUpdater.on('update-downloaded', (info) => {
   autoUpdater.quitAndInstall();  
 })
