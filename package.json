@@ -21,9 +21,7 @@
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "deleteAppDataOnUninstall": false,
-      "installerIcon": "./build/aaa.ico",
-      "uninstallerIcon": "./build/aaa.ico"
+      "deleteAppDataOnUninstall": false
     },
     "mac": {
       "category": "your.app.category.type",
