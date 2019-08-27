@@ -87,6 +87,8 @@ autoUpdater.on('update-available', (info) => {
   })
 })
 autoUpdater.on('update-not-available', (info) => {
+  sendStatusToWindow('update-not-available');
+
   dialog.showMessageBox({
     title: 'No Updates',
     message: 'Current version is up-to-date.'
