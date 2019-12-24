@@ -17,6 +17,11 @@
   },
   "build": {
     "appId": "com.github.web-pencil.electronupdaterexample",
+    "publish": [{
+      "provider": "github",
+      "owner": "web-pencil",
+      "repo": "electron-updater-example"
+    }],
     "nsis": {
       "oneClick": false,
       "perMachine": false,
